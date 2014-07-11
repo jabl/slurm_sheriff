@@ -1,8 +1,11 @@
 #!/usr/bin/python
+# -*- coding: utf-8 -*-
+# vim: set fileencoding=utf-8
 
-# Copyright (C) 2013 Janne Blomqvist
+# Copyright (C) 2013-2014 Janne Blomqvist
 
-# Find (and possibly kill) user processes running outside slurm control.
+# Find (and possibly kill) user processes running outside slurm
+# control.
 
 # Take the conservative approach of killing user processes on nodes
 # where the user has no jobs running
