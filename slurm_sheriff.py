@@ -83,9 +83,6 @@ def kill_outlaws(outlaws):
 if __name__ == '__main__':
     from optparse import OptionParser
 
-    valid_uids = users_with_jobs_on_this_node()
-    outlaws = outlaw_users_on_this_node(valid_uids)
-
     usage = """%prog [options]
 
 Find, and optionally kill, outlaw processes running outside slurm control."""
@@ -93,6 +90,9 @@ Find, and optionally kill, outlaw processes running outside slurm control."""
     parser.add_option('-k', '--kill', dest='kill', action='store_true',
                       help='Kill outlaw processes')
     (options, args) = parser.parse_args()
+
+    valid_uids = users_with_jobs_on_this_node()
+    outlaws = outlaw_users_on_this_node(valid_uids)
     show_outlaws(outlaws)
     if options.kill:
         kill_outlaws(outlaws)
