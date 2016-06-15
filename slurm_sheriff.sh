@@ -36,7 +36,7 @@ done
 # Annoyingly, squeue always exits with status 0, so we must explicitly
 # check that stderr is empty before proceeding
 sqerrf=$(mktemp)
-userlist=$(/usr/bin/squeue -w $HOSTNAME -o%u -h -t R,S,CF 2>$sqerrf |sort|uniq)
+userlist=$(/usr/bin/squeue -w $HOSTNAME -o%u -h -t R,S,CF,CG 2>$sqerrf |sort|uniq)
 sqerr=$(<$sqerrf)
 rm $sqerrf
 if [[ -n "$sqerr" ]]; then
